@@ -1,24 +1,11 @@
-//
-//  ContentView.swift
-//  Notion Swift
-//
-//  Created by Alan on 2025-09-20.
-//
-
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
-}
+    @State var urlToLoad: String
 
-#Preview {
-    ContentView()
+    var body: some View {
+        WebView(urlToLoad: $urlToLoad)
+            // 添加一个非常细微的背景，以确保窗口有内容可以渲染圆角
+            .background(Color(nsColor: .windowBackgroundColor).opacity(0.001))
+    }
 }
